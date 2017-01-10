@@ -6,7 +6,7 @@
 /*   By: niludwig <niludwig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/06 17:11:27 by niludwig          #+#    #+#             */
-/*   Updated: 2017/01/10 03:45:49 by niludwig         ###   ########.fr       */
+/*   Updated: 2017/01/10 05:28:12 by niludwig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int ft_verif_last(const char *format)
 	if (*format == 's' || *format == 'S' || *format == 'p' || *format == 'd' ||
 	*format == 'D' || *format == 'i' || *format == 'o' || *format == 'O' ||
 	*format == 'u' || *format == 'U' || *format == 'x' || *format == 'X' ||
-	*format == 'c' || *format == 'C' || *format == 'B')
+	*format == 'c' || *format == 'C' || *format == 'B' || *format == 'b' ||
+	*format == 'p')
 		return (1);
 	else
 		return (0);
@@ -28,7 +29,8 @@ int ft_check_last(char format)
 	if (format == 's' || format == 'S' || format == 'p' || format == 'd' ||
 	format == 'D' || format == 'i' || format == 'o' || format == 'O' ||
 	format == 'u' || format == 'U' || format == 'x' || format == 'X' ||
-	format == 'c' || format == 'C' || format == 'B')
+	format == 'c' || format == 'C' || format == 'B' || format == 'b' ||
+	format == 'p')
 		return (1);
 	else
 		return (0);

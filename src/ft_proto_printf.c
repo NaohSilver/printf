@@ -6,7 +6,7 @@
 /*   By: niludwig <niludwig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/10 02:33:33 by niludwig          #+#    #+#             */
-/*   Updated: 2017/01/10 03:37:26 by niludwig         ###   ########.fr       */
+/*   Updated: 2017/01/10 05:16:59 by niludwig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_arg *ft_travaille_tranquille(t_arg *proto, va_list ap)
 	return (proto);
 }
 
-t_arg *ft_travaille_oklm(t_arg *proto, va_list ap)
+t_arg *ft_travaille_dur(t_arg *proto, va_list ap)
 {
 	return (proto);
 }
@@ -27,8 +27,14 @@ t_arg *ft_travaille_facile(t_arg *proto, va_list ap)
 	return (proto);
 }
 
-t_arg *ft_travaille_dur(t_arg *proto, va_list ap)
+t_arg *ft_travaille_oklm(t_arg *proto, va_list ap)
 {
+	if (proto->befor_flag == 1)
+		proto = ft_diese(proto, ap);
+	else if (proto->befor_flag == 2)
+		proto = ft_plus(proto, ap);
+	else if (proto->befor_flag == 4)
+		proto = ft_space(proto, ap);
 	return (proto);
 }
 
@@ -50,7 +56,8 @@ t_arg *ft_travaille(t_arg *proto, va_list ap)
 	{
 		proto->rebuffer = ft_yolo(proto, ap);
 		proto->len = ft_strlen(proto->rebuffer);
-		ft_strcat(proto->buffer, proto->rebuffer);
+		ft_strncat(proto->buffer, proto->rebuffer, proto->len);
+		write(1, proto->buffer, BUFF_SIZE);
 		return (proto);
 	}
 }
